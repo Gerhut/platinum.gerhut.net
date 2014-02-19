@@ -17,9 +17,9 @@
 ```json
 [
   {
-    'date': 1,
-    'name': 'foo',
-    'content': 'bar'
+    "date": 1,
+    "name": "foo",
+    "content": "bar"
   }
 ]
 ```
