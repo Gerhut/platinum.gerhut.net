@@ -13,7 +13,11 @@
   accessToken = accessToken.substr(0, accessToken.indexOf('&'));
   
   var restUrl = 'https://openapi.baidu.com/rest/2.0/passport/users/getLoggedInUser?' + accessToken + '&callback=?'
-  $.getJSON(restUrl).done(window.run);
+  $.getJSON(restUrl).done(function (data) {
+    if ('error_msg' in data)
+      return document.write(data.error_msg);
+    window.run(data);
+  });
 }());
 
 function run(data) {
