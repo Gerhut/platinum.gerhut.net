@@ -1,0 +1,32 @@
+Monitor(s)
+Single
+Multi
+Mode of Zoom
+Single Screen
+Double Screen
+Filter
+None
+Fast Linear
+Switch Screen
+Upper Screen
+Lower Screen
+Resolution
+Rotate
+Normal
+Turn Left
+Turn Right
+Show Cursor
+ON
+OFF
+OffSet
+Speed
+Vsync
+Hide Emu?
+Show
+Hide
+Are you a Superman?
+Adjust
+Border
+Yes
+None
+None of ALL!
