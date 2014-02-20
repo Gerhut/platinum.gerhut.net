@@ -1,0 +1,1 @@
+start monitor/monitor/NO$GBA.EXE pack.nds
