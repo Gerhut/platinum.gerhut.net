@@ -8,24 +8,20 @@
     <link href="/css/main.css" rel="stylesheet" />
     <script src="/js/io.js"></script>
     <script src="/js/jquery.min.js"></script>
-    
+
     <!--<script src="/js/oauth.js"></script>-->
 </head>
 <body>
     <div id="container">
         <div id="gamearea">
-            <div id="mainscreen"><img src="/images/test.png" id="gamesrceen" /></div>
+            <div id="mainscreen"><img id="imgGamescreen" src='/images/test.png' onload='load()' width="270" height="407"/></div>
             <div id="tools"></div>
         </div>
         <div id="chatbox">
-            <div id="chatmessage"><input id="message" /><button id="send">Send</button></div>
+            <div id="chatmessage"><input id="txtMessage" onkeypress='if (event.keyCode == 13) { talk(); }' /><button id="btnSend" onclick="    talk()">Send</button></div>
             <div id="chatlist"></div>
         </div>
     </div>
+    <script src="js/init.js"></script>
 </body>
 </html>
-<script>
-    jsonp('http://pokemod.gerhut.net:4930/chat', function (data) {
-        document.getElementById('chatlist').innerText = data;
-    })
-</script>
