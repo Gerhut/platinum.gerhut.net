@@ -2,6 +2,7 @@
 
 from BaseHTTPServer import BaseHTTPRequestHandler
 from urllib import unquote
+from json import dump
 
 import screenshots
 import multiservers
@@ -24,7 +25,10 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-Type', 'application/javascript')
         self.end_headers()
-        self.wfile.write(chat.content)
+        self.wfile.write(callback_name)
+        self.wfile.write('(')
+        dump(chat.content, self.wfile)
+        self.wfile.write(')')
         self.wfile.close()
     def do_GET(self):
         if self.path == '/':
@@ -38,15 +42,16 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
             callback_name = path[callback_index + 10:]
 
             path = path[:callback_index]
-            if path[0] == '/':
+            
+            if path.startswith('/'):
                 components = path.split('/')
                 if len(components) == 3:
                     chat.add(unquote(components[1]), unquote(components[2]))
 
             self.send_chat(callback_name)
+        else:
+            self.send_error(400)
 
 
-
-
-multiservers.start((1000,), ScreenShotHandler)
+multiservers.start(range(4931, 4940), MultiPokeHandler)
 screenshots.start('No$gba Emulator ')
