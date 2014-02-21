@@ -48,9 +48,13 @@ def shotScreen():
     while True:
         for title in rects:
             stringIO = StringIO()
-            grab(rects[title]).save(stringIO, 'PNG')
-            images[title] = stringIO.getvalue()
-            stringIO.close()
+            try:
+                grab(rects[title]).save(stringIO, 'PNG')
+                images[title] = stringIO.getvalue()
+            except IOError:
+                print title + ' grab failed.'
+            finally:
+                stringIO.close()
         sleep(delay)
 
 def start(titles, newThread=True):
