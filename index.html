@@ -4,14 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title>Multi-Pokemon</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <script src="/js/io.js"></script>
     <script src="/js/jquery.min.js"></script>
+    
     <!--<script src="/js/oauth.js"></script>-->
-
 </head>
 <body>
     <div id="container">
-        <div id="mainscreen"><img src="/images/test.png" id="gamesrceen"/></div>
+        <div id="mainscreen"><img src="/images/test.png" id="gamesrceen" /></div>
+        <div id="chatbox">
+            <div id="chatmessage"><input id="message" /><button id="send">Send</button></div>
+            <div id="chatlist"></div>
+        </div>
     </div>
-
 </body>
 </html>
+<script>
+    jsonp('http://pokemod.gerhut.net:4930/chat', function (data) {
+        document.getElementById('chatlist').innerText = data;
+    })
+</script>
