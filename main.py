@@ -5,6 +5,8 @@ import screenshots
 import multiservers
 
 class ScreenShotHandler(BaseHTTPRequestHandler):
+    def log_message(*args, **kwargs):
+        pass
     def do_GET(self):
         self.send_response(200)
         self.send_header('Content-Type', 'image/png')
