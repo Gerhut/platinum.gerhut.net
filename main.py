@@ -4,7 +4,7 @@ from BaseHTTPServer import BaseHTTPRequestHandler
 from urllib import unquote
 from json import dump
 
-import screenshots
+import screenshot
 import multiservers
 import chat
 
@@ -18,7 +18,7 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-cache')
         self.send_header('Pragma', 'no-cache')
         self.end_headers()
-        self.wfile.write(screenshots.images['No$gba Emulator '])
+        self.wfile.write(screenshot.image)
         self.wfile.close()
     def send_chat(self, callback_name):
         self.send_response(200)
@@ -53,4 +53,4 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
 
 
 multiservers.start(range(4931, 4940), MultiPokeHandler)
-screenshots.start('No$gba Emulator ')
+screenshot.start('No$gba Emulator ')
