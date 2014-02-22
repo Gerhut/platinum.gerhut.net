@@ -53,7 +53,5 @@
     window.run = function (udata) {
         name = udata.uname
         window.refreshChat()
-        gamescreen.onload = window.imageLoaded
-        window.imageLoaded()
     }
 })()
