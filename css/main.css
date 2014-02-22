@@ -33,24 +33,25 @@ width:100%;
 
 #container {
     margin: 0 auto;
-    width: 270px;
+    width: 256px;
+    height:384px;
+    user-select:none
 }
 
 #gamescreen, mainscreen {
-    width: 270px;
-    height: 407px;
+    width: 256px;
+    height:384px;
 }
 
 #chatbox {
-    width: 260px;
-    padding: 5px;
+    width: 256px;
 }
 
     #chatbox input {
         border: 1px solid black;
         text-indent: 9px;
         height: 18px;
-        width: 198px;
+        width: 194px;
         border-top-left-radius: 9px;
         border-bottom-left-radius: 9px;
     }
