@@ -1,5 +1,5 @@
 ﻿(function () {
-    var name = 'user';//测试用户名
+    var name
     var host = window.location.host, gamehost = 'pokemod.gerhut.net';
     var version;
     switch (host) {
@@ -43,5 +43,11 @@
         jsonp(urlMouse + '/' + Math.round(event.offsetX) + ',' + Math.round(event.offsetY), function (data) {
             return;
         })
+    }
+
+    window.run = function(udata) {
+        name = udate.uname
+        window.refreshChat()
+        window.imageLoaded()
     }
 })()

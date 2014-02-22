@@ -19,7 +19,3 @@
     window.run(data);
   });
 }());
-
-function run(data) {
-  alert('hello, ' + data.uname);
-}
