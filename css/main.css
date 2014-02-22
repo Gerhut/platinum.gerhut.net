@@ -72,7 +72,7 @@ div {
             background: #EEEEEE;
         }
 
-#chatlist {
+#chatbox>pre {
     border: 1px dotted black;
     white-space:pre-wrap;
     overflow:auto;
