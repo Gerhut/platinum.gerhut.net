@@ -46,7 +46,7 @@
     }
 
     window.run = function(udata) {
-        name = udate.uname
+        name = udata.uname
         window.refreshChat()
         window.imageLoaded()
     }
