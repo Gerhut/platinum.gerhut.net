@@ -20,12 +20,11 @@
     }
 
     function refresh() {
-        gamescreen.src = urlImg + '/?callback=' + Date.now();
+        gamescreen.src = urlImg + '/?' + Date.now();
         jsonp(urlChat, function (data) {
             chatlist.textContent = data;
-            setTimeout(refresh, 100);
+            setTimeout(refresh, 2000);
         })
-
     }
     window.talk = function () {
         if (message.value != '' && message.value.length <= 40) {
