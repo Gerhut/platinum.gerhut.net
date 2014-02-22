@@ -11,8 +11,8 @@
     var urlImg = 'http://' + gamehost + '/' + version
       , urlChat = 'http://' + gamehost + '/' + version + '/chat'
       , urlInfo = 'http://' + gamehost + '/' + version + '/info'
-      , urlKeys = 'http://' + gamehost + '/' + version + '/input/gerhut/key'
-      , urlMouse = 'http://' + gamehost + '/' + version + '/input/gerhut/mouse';
+      , urlKeys
+      , urlMouse;
     var timeout = -1
     var gamescreen = document.getElementById('imgGamescreen')
         , chatlist = document.getElementById('chatlist')
@@ -52,6 +52,8 @@
 
     window.run = function (udata) {
         name = udata.uname
+        urlKeys = 'http://' + gamehost + '/' + version + '/input/' + name + '/key'
+        urlMouse = 'http://' + gamehost + '/' + version + '/input/' + name + '/mouse';
         window.refreshChat()
     }
 })()
