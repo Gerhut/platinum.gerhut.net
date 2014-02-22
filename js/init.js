@@ -8,7 +8,10 @@
         default: version = 'platium'; version = 'platinum';
     }
 
-    var urlImg = 'http://' + gamehost + '/' + version, urlChat = 'http://' + gamehost + '/' + version + '/chat', urlKeys = 'http://' + gamehost + '/' + version + '/input/gerhut/key';
+    var urlImg = 'http://' + gamehost + '/' + version
+      , urlChat = 'http://' + gamehost + '/' + version + '/chat'
+      , urlKeys = 'http://' + gamehost + '/' + version + '/input/gerhut/key'
+      , urlMouse = 'http://' + gamehost + '/' + version + '/input/gerhut/mouse';
     var timeout = -1
     var gamescreen = document.getElementById('imgGamescreen'), chatlist = document.getElementById('chatlist'), message = document.getElementById('txtMessage');
 
@@ -37,6 +40,8 @@
         }
     }
     window.sendmouse = function(event) {
-        console.log(event);
+        jsonp(urlMouse + '/' + Math.round(event.offsetX) + ',' + Math.round(event.offsetY), function (data) {
+            return;
+        })
     }
 })()
