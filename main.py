@@ -9,7 +9,6 @@ import multiservers
 import chat
 
 class MultiPokeHandler(BaseHTTPRequestHandler):
-    chat_content = ''
     def log_message(*args, **kwargs):
         pass
     def send_screen_shot(self):
@@ -38,7 +37,7 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
 
             callback_index = path.find('?callback=')
             if callback_index == -1:
-                return self.send_error(400)
+                return self.send_error(400, 'Callback required'.)
             callback_name = path[callback_index + 10:]
 
             path = path[:callback_index]
@@ -50,7 +49,7 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
 
             self.send_chat(callback_name)
         else:
-            self.send_error(400)
+            self.send_error(400, 'Invalid request.')
 
 
 multiservers.start(range(4931, 4940), MultiPokeHandler)
