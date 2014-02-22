@@ -1,4 +1,3 @@
-
 from StringIO import StringIO
 from time import sleep
 from ImageGrab import grab
