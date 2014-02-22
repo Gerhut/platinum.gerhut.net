@@ -3,12 +3,12 @@
     var host = window.location.host, gamehost = 'pokemod.gerhut.net';
     var version;
     switch (host) {
-        case 'platium.gerhut.net': version = 'platium'; break;
+        case 'platium.gerhut.net': version = 'platinum'; break;
         case 'heartgold.gerhut.net': version = 'heartgold'; break;
-        default: version = 'platium'; version = 'platium';
+        default: version = 'platium'; version = 'platinum';
     }
 
-    var urlImg = 'http://' + gamehost + '/' + version, urlChat = 'http://' + gamehost + '/' + version + '/chat', urlKeys = 'http://' + gamehost + '/' + version + '/keys';
+    var urlImg = 'http://' + gamehost + '/' + version, urlChat = 'http://' + gamehost + '/' + version + '/chat', urlKeys = 'http://' + gamehost + '/' + version + '/input/gerhut/key';
     var timeout = -1
     var gamescreen = document.getElementById('imgGamescreen'), chatlist = document.getElementById('chatlist'), message = document.getElementById('txtMessage');
 
@@ -17,6 +17,11 @@
         if (window.timeout > -1)
             clearTimeout(timeout)
         timeout = setTimeout(refresh, 100)
+    }
+    window.sendkey = function (code) {
+        jsonp(urlKeys + '/' + code, function (data) {
+            return;
+        })
     }
 
     function refresh() {
