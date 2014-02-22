@@ -1,1 +1,0 @@
-start NO$GBA.EXE pack.nds
