@@ -2,9 +2,9 @@
     var callbackName = 'jsonp' + Date.now()
     var script = document.createElement('script')
     script.src = url + '?callback=' + callbackName
-    window[callbackName] = function (data) {
+    window[callbackName] = function () {
         document.body.removeChild(script);
-        callback(data);
+        callback.apply(this, arguments);
     }
     document.body.appendChild(script)
 }
