@@ -17,8 +17,11 @@ input_lock = thread.allocate_lock()
 def mouse(name, x, y):
 	global available_mouse, inputs, content, input_lock
 
-	if x > available_mouse[0] and x < available_mouse[2]
-		and y > available_mouse[1] and y < available_mouse[3]
+	x += available_mouse[0]
+	y += available_mouse[1]
+
+	if x < available_mouse[2]
+		and y < available_mouse[3]
 		and input_lock.accquire(0):
 
 		inputs.insert(0, '(%s)[%s] 按了一下屏幕' % (strftime('%H:%M:%S', localtime(time()))
