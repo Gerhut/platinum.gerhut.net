@@ -4,17 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title>Multi-Pokemon</title>
-    <link href="/css/reset.css" rel="stylesheet" />
-    <link href="/css/main.css" rel="stylesheet" />
-    <script src="/js/io.js"></script>
-    <script src="/js/jquery.min.js"></script>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/io.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     <!--<script src="/js/oauth.js"></script>-->
 </head>
-<body onload ='window.load()'>
+<body onload ='refreshChat()'>
     <div id="container">
         <div id="gamearea">
-            <div id="mainscreen"><img id="imgGamescreen" src='/images/default.png' width="256" height="384" /></div>
+            <div id="mainscreen"><img id="imgGamescreen" src='images/default.png' width="256" height="384" onclick="sendmouse(event)" onload="imageLoaded()"/></div>
             <div id="tools"></div>
         </div>
         <div id="keypad">

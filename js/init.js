@@ -12,23 +12,20 @@
     var timeout = -1
     var gamescreen = document.getElementById('imgGamescreen'), chatlist = document.getElementById('chatlist'), message = document.getElementById('txtMessage');
 
-    window.load = function () {
-
-        if (window.timeout > -1)
-            clearTimeout(timeout)
-        timeout = setTimeout(refresh, 100)
-    }
     window.sendkey = function (code) {
         jsonp(urlKeys + '/' + code, function (data) {
             return;
         })
     }
 
-    function refresh() {
-        gamescreen.src = urlImg + '/?' + Date.now();
+    window.imageLoaded = function () {
+        setTimeout(function () { gamescreen.src = urlImg + '/?' + Date.now(); }, 100);
+    }
+
+    window.refreshChat = function() {
         jsonp(urlChat, function (data) {
-            chatlist.textContent = data;
-            setTimeout(refresh, 100);
+            chatlist.innerHTML = data;
+            setTimeout(window.refreshChat, 500);
         })
     }
     window.talk = function () {
@@ -39,5 +36,7 @@
             message.value = ''
         }
     }
-
+    window.sendmouse = function(event) {
+        console.log(event);
+    }
 })()
