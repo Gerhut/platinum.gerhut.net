@@ -8,13 +8,13 @@ __all__ = ['image', 'delay', 'start']
 image = ''
 delay = .1
 
-def shotScreen(rect):
+def shotScreen(_rect):
     global image
     print 'Start screenshotting.'
     while True:
         stringIO = StringIO()
         try:
-            grab(rect).save(stringIO, 'PNG')
+            grab(_rect).save(stringIO, 'PNG')
             image = stringIO.getvalue()
         except IOError:
             print 'Screennshotting failed.'

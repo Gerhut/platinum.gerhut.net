@@ -31,6 +31,5 @@ def get(title = None):
                 _rect = tuple(_rect.bbox())
                 _title = title
                 break
-            print 'Cannot find the window.'
-            sleep(delay)
+            sleep(.1)
     return _rect
