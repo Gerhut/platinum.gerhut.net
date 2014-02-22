@@ -3,6 +3,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler
 from urllib import unquote
 from json import dump
+from os import system
 
 import screenshot
 import multiservers
@@ -51,6 +52,6 @@ class MultiPokeHandler(BaseHTTPRequestHandler):
         else:
             self.send_error(400, 'Invalid request.')
 
-
+system('run')
 multiservers.start(range(4931, 4940), MultiPokeHandler)
 screenshot.start('No$gba Emulator ')
