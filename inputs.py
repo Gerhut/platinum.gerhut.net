@@ -2,7 +2,7 @@
 import ctypes
 import rect
 from time import time, strftime, localtime
-from thread import start_new_thread, exit_thread, allocate_lock
+from thread import exit_thread, allocate_lock
 
 __all__ = ['available_mouse', 'available_keys', 'mouse', 'key', 'content']
 
