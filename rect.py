@@ -23,6 +23,7 @@ def get(title = None):
         while True:
             hwnd = ctypes.windll.user32.FindWindowA(None, title)
             if hwnd != 0:
+                ctypes.windll.user32.SetForegroundWindow(hwnd)
                 _rect = RECT()
                 ctypes.windll.user32.ShowWindow(hwnd, 9) # SW_RESTORE
                 ctypes.windll.user32.GetClientRect(hwnd, ctypes.byref(_rect))
