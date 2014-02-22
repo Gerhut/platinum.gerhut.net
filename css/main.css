@@ -4,8 +4,9 @@
     background: #D6D3CE;
     font-size: 12px;
 }
+
 div {
-width:100%;
+    width: 100%;
 }
 
 #chatbox input {
@@ -34,17 +35,18 @@ width:100%;
 #container {
     margin: 0 auto;
     width: 256px;
-    height:384px;
-    user-select:none
+    height: 384px;
+    user-select: none;
 }
 
 #gamescreen, mainscreen {
     width: 256px;
-    height:384px;
+    height: 384px;
 }
 
 #chatbox {
-    width: 256px;
+    width: 100%;
+    margin-top:5px;
 }
 
     #chatbox input {
@@ -71,8 +73,29 @@ width:100%;
         }
 
 #chatlist {
-border:1px dotted black;
-height:100px;
-overflow:auto;
+    border: 1px dotted black;
+    white-space:pre-wrap;
+    overflow:auto;
+    height: 100px;
+    overflow: auto;
+    margin-top: 5px;
+    width:100%;
+    display:block;
+}
+#keypad {
 margin-top:5px;
 }
+#keypad,#keypad > table {
+width:100%;
+}
+    #keypad td {
+    width:12.5%;
+    }
+    #keypad button {
+    width:30px;
+    height:30px;
+    border:1px solid silver;
+    border-radius:15px;
+    background:#333333;
+    color:white;
+    }

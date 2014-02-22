@@ -1,14 +1,14 @@
 ﻿(function () {
     var name = 'user';//测试用户名
     var host = window.location.host, gamehost = 'pokemod.gerhut.net';
-    var version, port;
+    var version;
     switch (host) {
-        case 'platium.gerhut.net': version = 'platium'; port = '4930'; break;
-        case 'heartgold.gerhut.net': version = 'heartgold'; port = '2510'; break;
-        default: version = 'platium'; version = 'platium'; port = '4930';
+        case 'platium.gerhut.net': version = 'platium'; break;
+        case 'heartgold.gerhut.net': version = 'heartgold'; break;
+        default: version = 'platium'; version = 'platium';
     }
 
-    var urlImg = 'http://' + gamehost + ':' + port, urlChat = 'http://' + gamehost + ':' + port + '/chat', urlKeys = 'http://' + gamehost + ':' + port + '/keys';
+    var urlImg = 'http://' + gamehost + '/' + version, urlChat = 'http://' + gamehost + '/' + version + '/chat', urlKeys = 'http://' + gamehost + '/' + version + '/keys';
     var timeout = -1
     var gamescreen = document.getElementById('imgGamescreen'), chatlist = document.getElementById('chatlist'), message = document.getElementById('txtMessage');
 
@@ -23,7 +23,7 @@
         gamescreen.src = urlImg + '/?' + Date.now();
         jsonp(urlChat, function (data) {
             chatlist.textContent = data;
-            setTimeout(refresh, 2000);
+            setTimeout(refresh, 100);
         })
     }
     window.talk = function () {

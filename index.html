@@ -17,10 +17,51 @@
             <div id="mainscreen"><img id="imgGamescreen" src='/images/default.png' width="256" height="384" /></div>
             <div id="tools"></div>
         </div>
+        <div id="keypad">
+            <table>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><button>↑</button></td>
+                        <td></td>
+                        <td></td>
+
+                        <td></td>
+                        <td></td>
+                        <td><button>X</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button>←</button></td>
+                        <td></td>
+                        <td><button>→</button></td>
+                        <td></td>
+
+                        <td></td>
+                        <td><button>Y</button></td>
+                        <td></td>
+                        <td><button>A</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button>↓</button></td>
+                        <td></td>
+                        <td><button>始</button></td>
+
+                        <td><button>选</button></td>
+                        <td></td>
+                        <td><button>B</button></td>
+                        <td></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
         <div id="chatbox">
             <div id="chatmessage"><input id="txtMessage" onkeypress='if (event.keyCode == 13/*FF不支持event.keycode*/) { talk(); }' /><button id="btnSend" onclick="    talk()">Send</button></div>
             <pre id="chatlist"></pre>
         </div>
+        
     </div>
     <script src="js/init.js"></script>
 </body>
