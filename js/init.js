@@ -9,6 +9,7 @@
     }
 
     var urlImg = 'http://' + gamehost + '/' + version
+      , urlChat = 'http://' + gamehost + '/' + version + '/chat'
       , urlInfo = 'http://' + gamehost + '/' + version + '/info'
       , urlKeys = 'http://' + gamehost + '/' + version + '/input/gerhut/key'
       , urlMouse = 'http://' + gamehost + '/' + version + '/input/gerhut/mouse';
@@ -28,7 +29,7 @@
         setTimeout(function () { gamescreen.src = urlImg + '/?' + Date.now(); }, 100);
     }
 
-    window.refreshChat = function() {
+    window.refreshChat = function () {
         jsonp(urlInfo, function (chatData, inputData) {
             chatlist.innerHTML = chatData;
             inputlist.innerHTML = inputData;
@@ -37,19 +38,19 @@
     }
     window.talk = function () {
         if (message.value != '' && message.value.length <= 40) {
-            jsonp(urlChat + '/' + encodeURIComponent(name) + '/' + encodeURIComponent(txtMessage.value),function send(data) {
+            jsonp(urlChat + '/' + encodeURIComponent(name) + '/' + encodeURIComponent(txtMessage.value), function send(data) {
                 return;
             })
             message.value = ''
         }
     }
-    window.sendmouse = function(event) {
+    window.sendmouse = function (event) {
         jsonp(urlMouse + '/' + Math.round(event.offsetX) + ',' + Math.round(event.offsetY), function (data) {
             return;
         })
     }
 
-    window.run = function(udata) {
+    window.run = function (udata) {
         name = udata.uname
         window.refreshChat()
         gamescreen.onload = window.imageLoaded
