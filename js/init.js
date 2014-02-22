@@ -26,7 +26,7 @@
     }
 
     window.imageLoaded = function () {
-        setTimeout(function () { gamescreen.src = urlImg + '/?' + Date.now(); }, 100);
+        setTimeout(function () { gamescreen.src = urlImg + '/?' + Date.now(); }, 200);
     }
 
     window.refreshChat = function () {
