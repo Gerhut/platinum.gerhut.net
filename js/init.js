@@ -30,30 +30,35 @@
         setTimeout(function () { gamescreen.src = urlImg + '/?' + Date.now(); }, 200);
     }
 
+    var showTouch = function () {
+    	showTouch = function (touchData) {
+            for ( var i = 0, touch = touchData[i];
+                  touch;
+                  i += 1, touch = touchData[i]) {
+
+                if (lastclick === touch.toString())
+                    break;
+                var name = touch[0]
+                var x = touch[1]
+                var y = touch[2]
+                $("#mainscreen").append(
+                    $("<span>").text(name).css({
+                        'top': y,
+                        'left': x
+                    }).fadeIn(400).fadeOut(400, function () {
+                        $(this).remove()[0]
+                    })
+                );
+            }
+    	}
+    }
+
     window.refreshChat = function () {
         jsonp(urlInfo, function (chatData, inputData, touchData) {
             chatlist.innerHTML = chatData;
             inputlist.innerHTML = inputData;
             if (touchData.length) {
-                for ( var i = 0, touch = touchData[i];
-                      touch;
-                      i += 1, touch = touchData[i]) {
-
-                    if (lastclick === touch.toString())
-                        break;
-                    var c;
-                    var name = touch[0]
-                    var x = touch[1]
-                    var y = touch[2]
-                    $("#mainscreen").append(
-                        $("<span>").text(name).css({
-                            'top': y,
-                            'left': x
-                        }).fadeIn(400).fadeOut(400, function () {
-                            $(this).remove()[0]
-                        })
-                    );
-                }
+            	showTouch(touchData);
                 lastclick = touchData[0].toString();
             }
             setTimeout(window.refreshChat, 500);
