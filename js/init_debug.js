@@ -1,12 +1,12 @@
 ﻿(function () {
     var name
-    var lastclick = ''
+    var lastclick;
     var host = window.location.host, gamehost = 'pokemod.gerhut.net';
     var version;
     switch (host) {
-        case 'platinum.gerhut.net': version = 'platinum'; break;
+        case 'platium.gerhut.net': version = 'platinum'; break;
         case 'heartgold.gerhut.net': version = 'heartgold'; break;
-        default: version = 'heartgold';
+        default: version = 'platium'; version = 'heartgold';
     }
 
     var urlImg = 'http://' + gamehost + '/' + version
@@ -34,27 +34,17 @@
         jsonp(urlInfo, function (chatData, inputData, touchData) {
             chatlist.innerHTML = chatData;
             inputlist.innerHTML = inputData;
-            if (touchData.length) {
-                for ( var i = 0, touch = touchData[i];
-                      touch;
-                      i += 1, touch = touchData[i]) {
-
-                    if (lastclick === touch.toString())
-                        break;
-                    var c;
-                    var name = touch[0]
-                    var x = touch[1]
-                    var y = touch[2]
-                    $("#mainscreen").append(
-                        $("<span>").text(name).css({
-                            'top': y,
-                            'left': x
-                        }).fadeIn(400).fadeOut(400, function () {
-                            $(this).remove()[0]
-                        })
-                    );
-                }
-                lastclick = touchData[0].toString();
+            touch = touchData[0];
+            //alert(lastclick + '/' + touch);
+            if (lastclick != touch) {
+                
+                var c;
+                var name = touch[0]
+                var x = touch[1]
+                var y = touch[2]
+                $("#mainscreen").append(c = $("<span>" + name + "</span>"));
+                c.css('top', y - c.height() / 2).css('left', x - c.width() / 2).fadeIn(250, function () { c.fadeOut(250, function () { c.remove() }); });
+                lastclick = touch;
             }
             setTimeout(window.refreshChat, 500);
         })

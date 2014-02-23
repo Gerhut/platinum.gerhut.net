@@ -9,6 +9,9 @@ div {
     width: 100%;
 }
 
+#gamearea {
+    border:1px solid black;
+}
 #chatbox input {
     border: 1px solid black;
     text-indent: 9px;
@@ -39,11 +42,28 @@ div {
     user-select: none;
 }
 
-#gamescreen, mainscreen {
+#mainscreen {
     width: 256px;
     height: 384px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
 }
-
+    #mainscreen > span {
+    text-align:center;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    white-space: nowrap;
+    position:absolute;
+    cursor:pointer;
+    color:white;
+    text-shadow:1px 1px 1px red;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select:none;
+    }
 #chatbox {
     width: 100%;
     margin-top:5px;
@@ -57,7 +77,16 @@ div {
         border-top-left-radius: 9px;
         border-bottom-left-radius: 9px;
     }
-
+    #chatbox>pre{
+    border: 1px dotted black;
+    white-space:pre-wrap;
+    overflow:auto;
+    height: 100px;
+    overflow: auto;
+    margin-top: 5px;
+    width:100%;
+    display:block;
+}
     #chatbox button {
         height: 20px;
         width: 60px;
@@ -72,16 +101,7 @@ div {
             background: #EEEEEE;
         }
 
-#chatbox>pre {
-    border: 1px dotted black;
-    white-space:pre-wrap;
-    overflow:auto;
-    height: 100px;
-    overflow: auto;
-    margin-top: 5px;
-    width:100%;
-    display:block;
-}
+
 #keypad {
 margin-top:5px;
 }
@@ -99,3 +119,11 @@ width:100%;
     background:#333333;
     color:white;
     }
+#footer {
+width:100%;
+text-align:center;
+}
+hr {
+background:black;
+width:100%;
+}

@@ -1,5 +1,5 @@
 (function () {
-  var clientId = 'GlCQGR8vCtLalhd2tB8enA2s';
+  var clientId = 'cBCeLI1IKu92toMsZsOZDhBz';
   var oAuthUrl = [
     'https://openapi.baidu.com/oauth/2.0/authorize?response_type=token',
     'client_id=' + clientId,

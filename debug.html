@@ -1,10 +1,80 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>Multi-Pokemon</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/io.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        /*
+        $(document).ready(function () {
+            $('#mainscreen').click(function (e) {
+                var c;
+                var name = 'debug';
+                var x = Math.round(e.offsetX);
+                var y = Math.round(e.offsetY);
+                $(this).append(c = $("<span>" + name + "</span>"));
+                c.css('top', y - c.height() / 2).css('left', x - c.width() / 2).fadeIn(300, function () { c.fadeOut(300, function () { c.remove() }); });
+            })
+            $('#mainscreen>span').each(function () { $(this).click(function () { event.preventDefault() }) })
+        })
+        */
+    </script>
 </head>
 <body>
-    <script>alert(Date.now())</script>
+    <div id="container">
+        <div id="mainscreen"><img id="imgGamescreen" src='images/default.png' width="256" height="384" onclick="sendmouse(event)" onload="imageLoaded()" /></div>
+        <div id="keypad">
+            <table>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><button onclick="sendkey(87)">↑</button></td>
+                        <td></td>
+                        <td></td>
+
+                        <td></td>
+                        <td></td>
+                        <td><button onclick="sendkey(67)">X</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button onclick="sendkey(65)">←</button></td>
+                        <td></td>
+                        <td><button onclick="sendkey(68)">→</button></td>
+                        <td></td>
+
+                        <td></td>
+                        <td><button onclick="sendkey(86)">Y</button></td>
+                        <td></td>
+                        <td><button onclick="sendkey(90)">A</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button onclick="sendkey(83)">↓</button></td>
+                        <td></td>
+                        <td><button onclick="sendkey(70)">始</button></td>
+
+                        <td><button onclick="sendkey(82)">选</button></td>
+                        <td></td>
+                        <td><button onclick="sendkey(88)">B</button></td>
+                        <td></td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="chatbox">
+            <div id="chatmessage"><input id="txtMessage" onkeypress='if (event.keyCode == 13/*FF不支持event.keycode*/) { talk(); }' /><button id="btnSend" onclick="    talk()">Send</button></div>
+            <pre id="chatlist"></pre>
+            <pre id="inputlist"></pre>
+        </div>
+        <hr style="background:black" />
+        <p><a href="http://weibo.com/gerhut" target="_blank">哈特微博</a> <a href="http://weibo.com/u/1559741693" target="_blank">小可微博</a> 坏了请@任意一个，双@效率更高 || 建议使用Webkit内核浏览器运行</p>
+    </div>
+    <script src="js/init_debug.js"></script>
 </body>
 </html>
